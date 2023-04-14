@@ -13,7 +13,7 @@ namespace UnitTestProject1
         public void TestWriteFile()
         {
             PairGenerator pairGenerator = new PairGenerator();
-            string text = pairGenerator.Text('˛');
+            string text = pairGenerator.Text('—é');
             string file = new string("text1.txt");
             file = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\", file);
 
@@ -30,7 +30,7 @@ namespace UnitTestProject1
             file = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\", file);
             Assert.IsFalse(File.Exists(file));
 
-            pairGenerator.Text('‡');
+            pairGenerator.Text('–∞');
             pairGenerator.WriteFile(file);
             Assert.IsTrue(File.Exists(file));
 
@@ -51,7 +51,7 @@ namespace UnitTestProject1
         public void TestLengthText()
         {
             PairGenerator pairGenerator = new PairGenerator();
-            string text = pairGenerator.Text('‡');
+            string text = pairGenerator.Text('–∞');
             Assert.IsTrue(text.Length == 1000);
         }
 
@@ -60,10 +60,10 @@ namespace UnitTestProject1
         public void TestPairGenerator()
         {
             PairGenerator pairGenerator = new PairGenerator();
-            string text = pairGenerator.Text('˛');
-            Assert.IsTrue(!text.Contains("˛˙"));
-            Assert.IsTrue(!text.Contains("˛˝"));
-            Assert.IsTrue(!text.Contains("˛˛"));
+            string text = pairGenerator.Text('—é');
+            Assert.IsTrue(!text.Contains("—é—ç"));
+            Assert.IsTrue(!text.Contains("—é—ä"));
+            Assert.IsTrue(!text.Contains("—é—é"));
 
         }
 
