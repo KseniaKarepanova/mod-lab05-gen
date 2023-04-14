@@ -15,8 +15,7 @@ namespace UnitTestProject1
             PairGenerator pairGenerator = new PairGenerator();
             string text = pairGenerator.Text('ю');
             string file = new string("text1.txt");
-            file = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\", file);
-
+            
             pairGenerator.WriteFile(file);
             Assert.IsTrue(File.Exists(file));
         }
@@ -27,7 +26,7 @@ namespace UnitTestProject1
             PairGenerator pairGenerator = new PairGenerator();
 
             string file = new string("text4.txt");
-            file = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\", file);
+            
             Assert.IsFalse(File.Exists(file));
 
             pairGenerator.Text('а');
